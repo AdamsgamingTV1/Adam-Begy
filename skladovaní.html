@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="https://th.bing.com/th?id=OSK.2c03feff2fe3929b86fcc2b4222b310d&w=148&h=148&c=7&o=6&dpr=1.3&pid=SANGAM" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklad</title>
+</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color:#333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, button {
+            margin-bottom: 5px;
+        }
+    </style>
+<body>
+    <h1>Skladová Správa</h1>
+    
+    <ul id="sklad"</ul>
+
+    <label for="produkt">Produkt:</label>
+    <input type="text" id="produkt">
+
+    <label for="mnozstvi">Množství:</label>
+    <input type="number" id="mnozstvi">
+
+    <button onclick="pridejZasob()">Přidat zásobu</button>
+    <button onclick="odberZasob()">Odebrat zásobu</button>
+    <button onclick="najdiNejdrazsiProdukt()">Najít nejdražší produkt</button>
+    <button onclick="filtrovatProdukt()">Filtrovat</button>
+    <button onclick="aktualizujSeznam()">Aktualizovat</button>
+
+    <script>
+        const produkty = [
+            { nazev: "Tužka", cenaZaKus: 10, pocetNaSklade: 100 },
+            { nazev: "Sešit", cenaZaKus: 20, pocetNaSklade: 150 },
+            { nazev: "Batoh", cenaZaKus: 500, pocetNaSklade: 50 },
+            { nazev: "Pravítko", cenaZaKus: 30, pocetNaSklade: 75 },
+            { nazev: "Pero", cenaZaKus: 40, pocetNaSklade: 200 },
+            { nazev: "Kalkulačka", cenaZaKus: 200, pocetNaSklade: 30 },
+            { nazev: "Barvy", cenaZaKus: 150, pocetNaSklade: 80 },
+            { nazev: "Štětce", cenaZaKus: 60, pocetNaSklade: 120 },
+            { nazev: "Ležidlo", cenaZaKus: 300, pocetNaSklade: 40 },
+            { nazev: "Mapa světa", cenaZaKus: 180, pocetNaSklade: 60 }
+        ];
+        const sklad = [];
+
+        function pridejZasob() {
+            const produkt = document.getElementById
+            const mnozstvi = parseInt(document.getElementById("mnozstvi").value);
+            
+            const vybranyProdukt = produkty.find(item => item.nazev === produkt);
+
+            if (vybranyProdukt && !isNaN(mnozstvi)) {
+                sklad.push({ pordukt, mnozstvi});
+                aktualizujSeznam();
+            }  else {
+                alert("Zadejte platné údaje.");
+            }
+        }
+
+        function odberZasob() {
+            const produkt = document.getElementById("produkt").value;
+
+            sklad = sklad.filter(item => item.produkt !== produkt);
+            aktualizujSeznam();
+        }
+
+        function najdiNejdrazsiProdukt() {
+            if (sklad.length === 0) {
+                alert("Sklad je prázdný.");
+                return;
+            }
+
+            const nejdrasiProdukt = sklad.reduce((max, item) => (item.cenaZaKus > max.cenaZaKus ? item : max), sklad[0]);
+            alert('Nejdražší produkt je: ${nejdrasiProdukt.produkt}, Cena za kus: ${nejdrasiProdukt.cenaZaKus}');
+        }   
+
+        function filtrovaniPodleMnozstvi() {
+            const minimalniMnozstvi = parseInt(prompt("Zadejte minimální množství:"));
+
+            if (!isNaN(minimalniMnozstvi)) {
+                const filtrovaneZasoby = sklad.filter(item => item.mnozstvi >=minimalniMnozstvi);
+                alert ('Produkty s množstvím nad ${mini}')
+            else
+                alert('Zadejte platný výrok')
+
+            }
+        }
+
+        function aktualizujSeznam() {
+            const seznam = document.getElementById("sklad");
+            seznam.innerHTML = "";
+
+            sklad.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.textContent = '${item.produkt}: ${item.mnozstvi}';
+                seznam.appendChild(listItem);
+            });
+        }
+
+
+     </script>
+    
+</body>
+</html>
