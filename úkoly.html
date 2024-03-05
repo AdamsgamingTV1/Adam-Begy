@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÚKOLY</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 20px, auto;
+        padding: 20px;
+        border: 1px, solid #ddd;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+    }
+
+    h2 {
+        color: blue;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        background-color: #2c3e50;
+            color: #d30f0f;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+    }
+</style>
+</head>
+<body>
+    <h2>Úkol 1</h2>
+    <p>Zadejte číslo (1-12):</p>
+<script>
+    var month_number = prompt("Zadejte číslo(1-12): ");
+    var months = {
+        1: "Leden",
+        2: "Únor",
+        3: "Březen",
+        4: "Duben",
+        5: "Květen",
+        6: "Červen",
+        7: "Červenec",
+        8: "Srpen",
+        9: "Září",
+        10: "Říjen",
+        11: "Listopad",
+        12: "Prosinec",
+    };
+    var month_name = months[parseInt(month_number)] || "Invalidní číslo!";
+    alert(" Měsíc je " + month_name);
+</script>
+    <h2>Úkol 2</h2>
+    <p>Zadejte číslo od 1 do 20:</p>
+<script>
+    var number = 1
+    while (number <= 20) {
+        if (number % 2 === 0) {
+            documnet.write(number + "<br>");
+        }
+        number++;
+    }
+</script>
+    <h2>Úkol 3</h2>
+    <p>Zadej heslo (ADAMSGAMINGTV):</p>
+<script>
+    var correct_password = "ADAMSGAMINGTV";
+    do {
+        var password = prompt("Zadej heslo: ");
+    } while (password !== correct_password);
+    alert("Správný heslo. Přístup propuštěn");
+
+</script>
+<h2>Úkol 4</h2>
+<p>Zadej číslo (1-7):</p>
+<script>
+    var day_number = prompt("Zadej číslo (1-7):");
+    var days = {
+        1: "Pondělí",
+        2: "Úterý",
+        3: "Středa",
+        4: "Čtvrtek",
+        5: "Pátek",
+        6: "Sobota",
+        7: "Neděle"
+    };
+    var day_name = days[parseInt(day_number)] || "Invalidní číslo!";
+    alert("Den je " + day_name);
+</script>
+
+<h2>Úkol 5</h2>
+<script>
+    var a = 0, b = 1;
+    var fibonacci_sequence = [a];
+    while (fibonacci_sequence.length < 10) {
+        var temp = b;
+        b = a + b;
+        a = temp;
+        fibonacci_sequence.push(a);
+    }
+    document.write("<p>Prvních 10 Fibonacciho čísla: " + fibonacci_sequence.join(", ") + "</p>");
+</script>
+
+<h2>Úkol 6</h2>
+<script>
+    var sum_of_numbers = 0;
+    do {
+        var number = parseInt(prompt("(0 to stop):"));
+        sum_of_numbers += number;
+    } while (number !== 0);
+    alert("Zadaná čísla: " + sum_of_numbers);
+</script>
+
+    <footer>
+        <p>&copy; 1991 ADAMSGAMINGTV</p>
+    </footer>
+
+
+
+</body>
+</html>
